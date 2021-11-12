@@ -1,0 +1,86 @@
+/* =========================
+    css reset - https://www.digitalocean.com/community/tutorials/css-minimal-css-reset
+============================*/
+
+html {
+    box-sizing: border-box;
+    /* font-size: 16px; */
+  }
+  
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+  
+  body, h1, h2, h3, h4, h5, h6, p, ol, ul {
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+  }
+  
+  ol, ul {
+    list-style: none;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+
+/* =========================
+    
+============================*/
+
+
+.content {
+    background-color: bisque;
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 70vh  200px 8vh;
+    /* grid-template-rows: auto; */
+    grid-template-areas: 
+        'main          main          main          main'
+        'photo-grid1   photo-grid2   photo-grid3   photo-grid4'
+        'footer        footer        footer        footer'
+        ;
+
+    padding: 0 calc((100% - 1315px) / 2);
+
+}
+
+.main-slide {
+    background-color: tomato;
+    grid-area: main;
+    background: url('https://web.archive.org/web/20140301004302im_/http://images.apple.com/v/home/as/images/your_verse_hero.jpg') 50% 100% no-repeat;
+    background-size: 1440px 1315px;
+}
+
+.photo-grid1 {
+    background-color: yellowgreen;
+    grid-area: photo-grid1;
+    background: url('https://web.archive.org/web/20140301004349im_/http://images.apple.com/home/images/promo_iphone5s.jpg');
+}
+
+.photo-grid2 {
+    background-color: pink;
+    grid-area: photo-grid2;
+    background: url('https://web.archive.org/web/20140301004350im_/http://images.apple.com/home/images/promo_iphone5c.jpg');
+}
+
+.photo-grid3 {
+    background-color: blue;
+    grid-area: photo-grid3;
+    background: url('https://web.archive.org/web/20140301004351im_/http://images.apple.com/home/images/promo_30_years.jpg');
+}
+
+.photo-grid4 {
+    background-color: sandybrown;
+    grid-area: photo-grid4;
+    background: url('https://web.archive.org/web/20140301004352im_/http://images.apple.com/home/images/promo_supplier_responsibility.jpg');
+}
+
+footer {
+    background-color: thistle;
+    grid-area: footer;
+}
