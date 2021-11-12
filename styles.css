@@ -4,7 +4,6 @@
 
 html {
   box-sizing: border-box;
-  /* font-size: 16px; */
 }
 
 *,
@@ -25,9 +24,7 @@ ol,
 ul {
   margin: 0;
   padding: 0;
-  font-weight: normal;
-  font: 12px/18px "Lucida Grande", "Lucida Sans Unicode", Helvetica, Arial,
-    Verdana, sans-serif;
+  font: 12px/18px Helvetica, Arial, Verdana, sans-serif;
 }
 
 ol,
@@ -36,7 +33,6 @@ ul {
 }
 
 img {
-  max-width: 100%;
   height: auto;
 }
 
@@ -55,7 +51,6 @@ nav ul {
   display: flex;
   align-items: center;
   border-radius: 0.5em;
-
   background: #707070;
   background: -webkit-gradient(
     linear,
@@ -73,33 +68,40 @@ nav ul li {
   padding: 0.5em 2.5em;
   color: white;
   font-size: 0.8rem;
-  /* font-weight: 100; */
   border-right: 1.5px solid #555;
 }
 
 nav ul li:hover {
   filter: brightness(50%);
-  /* background: -webkit-gradient(linear, 0 100%, 0 0, from(#666), color-stop(0.5, #5e5e5e), color-stop(0.51, #606060), to(#909090)); */
 }
 
 nav ul li:last-child {
   border-right: none;
 }
 
-.search {
-  width: 100px;
-  border-radius: 1em;
-  background: transparent;
+.search-bar-container {
+  position: relative;
+  padding: 0 1em;
 }
 
-.nav-logo {
-  /* background: url("/assets/favicon.png") 50% 50% no-repeat; */
+.search-icon {
+  position: absolute;
+  width: 12px;
+  z-index: 1;
+  top: 5px;
+  left: 20px;
+  filter: brightness(0) invert(1);
+}
+
+.search-bar {
+  border-radius: 1em;
+  background: transparent;
+  background: rgba(240, 240, 240, 0.1);
 }
 
 .nav-logo-img {
   width: 22px;
-  /* height: 25x; */
-  max-width: none;
+  max-width: none !important;
 }
 
 /* ====================================================================================================
@@ -107,17 +109,13 @@ nav ul li:last-child {
 =======================================================================================================*/
 
 .content {
-  background-color: bisque;
   display: grid;
-
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: 70vh 200px 8vh;
-  /* grid-template-rows: auto; */
   grid-template-areas:
     "main          main          main          main"
     "photo-grid1   photo-grid2   photo-grid3   photo-grid4"
     "footer        footer        footer        footer";
-
   padding: 0 calc((100% - 1315px) / 2);
 }
 
@@ -131,36 +129,34 @@ nav ul li:last-child {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* font-weight: 200; */
 }
 
 .main-slide > * {
-    /* font-weight: 200; */
+  /* font-weight: 400; */
+  /* font-size: 1.5em; */
+  /* transform: scale(1, 1.5); */
+  /* font-family: "San Francisco"; */
 }
 
-.main-slide h1, .main-slide h2, .main-slide h3 {
-    color: white;
-    margin: 1em 0;
-    
+.main-slide h1,
+.main-slide h2,
+.main-slide h3 {
+  color: white;
+  margin: 0.5em 0;
 }
 
 .main-slide h1 {
-    /* font-size: 5rem; */
-    font-size: 65px;
-    /* line-height: 36px; */
-    /* font-weight: 100; */
+  font-size: 65px;
 }
 
 .main-slide h2 {
-    font-size: 2rem;
-    line-height: 46px;
-    /* font-weight: 100; */
-    padding: 0 15rem;
+  font-size: 2rem;
+  line-height: 46px;
+  padding: 0 15rem;
 }
 
 .main-slide h3 {
-    font-size: 1.5rem;
-    /* font-weight: 100; */
+  font-size: 1.5rem;
 }
 
 .photo-grid1 {
@@ -194,44 +190,60 @@ nav ul li:last-child {
 footer {
   display: flex;
   justify-content: space-between;
-
-  /* background-color: thistle; */
   grid-area: footer;
   padding: 0 7rem;
-  /* font-size: 0.5rem; */
 }
 
-footer p, footer li {
-    font-size: 0.65rem;
+footer p,
+footer li {
+  font-size: 0.65rem;
 }
 
 .footer-left {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  /* background: green; */
   white-space: nowrap;
+  color: grey;
+}
 
+.footer-left span {
+  color: #08c;
+}
+
+.footer-left span:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.terms {
+  border-right: 1px solid grey;
+  padding-right: 0.5em;
 }
 
 .footer-right {
-  /* flex-direction: row; */
-  /* background: red; */
   width: 50%;
+  color: #08c;
 }
 
 .footer-right ul {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin-top: 0.8em;
 }
 
 .footer-right li {
-    padding: 0 1em;
-    border-right: 1px solid grey;
-    white-space: nowrap;
+  padding: 0 1em;
+  border-right: 1px solid grey;
+  white-space: nowrap;
 }
 
-.footer-right li:last-child { 
-    border-right: none;
+.footer-right li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.footer-right li:last-child {
+  border-right: none;
 }
